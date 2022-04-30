@@ -1,0 +1,33 @@
+.*
+### Except
+!.nvmrc
+!.gitignore
+!.github
+!.eslintrc.js
+!.prettierrc.json
+!.prettierignore
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+### Java
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Nodejs
+/node_modules
+/dist
+/coverage
+npm-debug.log
+
+### Generated
+/log
