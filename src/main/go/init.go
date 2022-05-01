@@ -6,8 +6,6 @@ import (
 	"fmt"
 )
 
-const HomeLocation = "TS-PR-HF"
-
 func main() {
 	db, err := database.Connect()
 	if err != nil {
@@ -20,6 +18,11 @@ func main() {
 	}
 
 	apricateService, err := apricate.NewApricateService(db)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	err = apricateService.LoadInitialData()
 	if err != nil {
 		fmt.Println(err)
 		return

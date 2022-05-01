@@ -3,6 +3,13 @@ module AdityaHegde/apricate-ai
 go 1.18
 
 require (
+	github.com/lib/pq v1.10.5
+	gorm.io/datatypes v1.0.6
+	gorm.io/driver/postgres v1.3.5
+	gorm.io/gorm v1.23.5
+)
+
+require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.12.0 // indirect
@@ -14,11 +21,7 @@ require (
 	github.com/jackc/pgx/v4 v4.16.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	github.com/lib/pq v1.10.5 // indirect
 	golang.org/x/crypto v0.0.0-20220427172511-eb4f295cb31f // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gorm.io/datatypes v1.0.6 // indirect
 	gorm.io/driver/mysql v1.3.3 // indirect
-	gorm.io/driver/postgres v1.3.5 // indirect
-	gorm.io/gorm v1.23.5 // indirect
 )

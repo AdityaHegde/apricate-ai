@@ -1,24 +1,28 @@
 package farms
 
 import (
-  "AdityaHegde/apricate-ai/src/main/go/apricate/commons"
-  "gorm.io/gorm"
+	"AdityaHegde/apricate-ai/src/main/go/apricate/commons"
+	"gorm.io/gorm"
 )
 
-func GetFarmPlotService(db *gorm.DB) commons.EntityService[FarmPlotEntity] {
-  return commons.EntityService[FarmPlotEntity]{
-    Db: db,
-    FieldsService: &commons.SimpleEntityFieldsService[FarmPlotEntity]{
-      PrimaryKey: "uuid",
-      PrimaryValueGetter: func(entity *FarmPlotEntity) string {
-        return entity.Uuid
-      },
-    },
-    Handler: new(commons.DummyEntityHandler[FarmPlotEntity]),
-    HttpService: commons.HttpService[FarmPlotEntity]{
-      UrlService: &commons.SimpleHttpURLService{
-        ApiPath: "/my/plots",
-      },
-    },
-  }
+type FarmPlotService struct {
+	commons.EntityService[FarmPlotEntity]
+}
+
+func NewFarmPlotService(db *gorm.DB) FarmPlotService {
+	farmPlotService := FarmPlotService{}
+	farmPlotService.Db = db
+	farmPlotService.FieldsService = &commons.SimpleEntityFieldsService[FarmPlotEntity]{
+		PrimaryKey: "uuid",
+		PrimaryValueGetter: func(entity *FarmPlotEntity) string {
+			return entity.Uuid
+		},
+	}
+	farmPlotService.Handler = new(commons.DummyEntityHandler[FarmPlotEntity])
+	farmPlotService.HttpService = commons.HttpService[FarmPlotEntity]{
+		UrlService: &commons.SimpleHttpURLService{
+			ApiPath: "/my/plots",
+		},
+	}
+	return farmPlotService
 }
